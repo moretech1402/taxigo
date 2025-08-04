@@ -1,0 +1,51 @@
+# Bytecode & caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Venv
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.Python
+
+# Poetry
+poetry.lock
+*.egg-info/
+.eggs/
+
+# BDD
+*.sqlite3
+media/
+staticfiles/
+
+# Tests
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.pytest_cache/
+.nosetests.xml
+coverage.xml
+
+# Logs & temps
+*.log
+*.pot~
+*.mo~
+*.tmp
+*.swp
+
+# Editor config
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Django
+db.sqlite3
+local_settings.py
