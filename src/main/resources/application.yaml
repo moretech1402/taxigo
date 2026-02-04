@@ -1,3 +1,25 @@
 spring:
   application:
     name: taxigo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taxigo
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update    # crea/actualiza tablas según las entidades
+    show-sql: true        # muestra las consultas SQL en la consola
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080             # puerto del servidor Spring Boot
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG        # opcional, para depurar SQL
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
