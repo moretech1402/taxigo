@@ -1,0 +1,10 @@
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+
+  <div class="card" *ngIf="user">
+    <p><strong>Email:</strong> {{ user.sub }}</p>
+    <p><strong>Roles:</strong> {{ user.roles }}</p>
+  </div>
+
+  <button (click)="logout()">Logout</button>
+</div>

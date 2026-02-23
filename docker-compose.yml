@@ -12,7 +12,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   api:
-    build: .
+    build:
+      context: ./backend
     container_name: taxigo-api
     ports:
       - "8080:8080"
