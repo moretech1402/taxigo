@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/auth.service';
+import { APP_ROUTES } from '../../../core/constants/app-routes';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +26,6 @@ export class DashboardComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate([APP_ROUTES.dashboard]);
   }
 }
