@@ -23,8 +23,9 @@ export class RegisterComponent {
     private router: Router
   ) {
     this.form = this.fb.group({
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', Validators.required]
     });
   }
 

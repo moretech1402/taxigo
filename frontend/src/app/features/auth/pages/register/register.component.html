@@ -3,6 +3,12 @@
 
   <form [formGroup]="form" (ngSubmit)="submit()">
 
+    <input 
+      type="text" 
+      placeholder="Username" 
+      formControlName="username" 
+    />
+    
     <input type="email" placeholder="Email" formControlName="email" />
     <input type="password" placeholder="Password" formControlName="password" />
 
