@@ -1,5 +1,7 @@
 package com.mcore.taxigo.auth;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mcore.taxigo.auth.dto.request.LoginRequest;
 import com.mcore.taxigo.auth.dto.request.RegisterRequest;
+import com.mcore.taxigo.auth.dto.response.AuthResponse;
+import com.mcore.taxigo.auth.service.AuthService;
 
 import jakarta.validation.Valid;
 
@@ -14,15 +18,28 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+    private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
+
+    @GetMapping("/health")
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("OK");
+    }
+
     @PostMapping("/login")
-    public String login(@Valid @RequestBody LoginRequest loginRequest) {
-        // Implement login logic
-        return "Login successful";
+    public ResponseEntity<AuthResponse> login(
+            @Valid @RequestBody LoginRequest loginRequest) {
+
+        return ResponseEntity.ok(authService.login(loginRequest));
     }
 
     @PostMapping("/register")
-    public String register(@Valid @RequestBody RegisterRequest registerRequest) {
-        // Implement registration logic
-        return "Registration successful";
+    public ResponseEntity<AuthResponse> register(
+            @Valid @RequestBody RegisterRequest registerRequest) {
+
+        return ResponseEntity.ok(authService.register(registerRequest));
     }
 }
